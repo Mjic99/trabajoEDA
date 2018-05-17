@@ -2,21 +2,21 @@ package proyecto.contenedor;
 
 
 public class Contenedor {
-    private String id;
-    private float peso;
-    private int puertoArribo;
 
-    public Contenedor(String id, float peso, int puertoArribo) {
+    private int id, puertoArribo;
+    private float peso;
+
+    public Contenedor(int id, float peso, int puertoArribo) {
         this.id = id;
         this.peso = peso;
         this.setPuertoArribo(puertoArribo);
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -29,16 +29,15 @@ public class Contenedor {
     }
 
     public void setPuertoArribo(int puertoArribo) {
-        if (puertoArribo<1 || puertoArribo>4){
+        if (puertoArribo < 1 || puertoArribo > 4){
             System.out.println("Número de puerto no válido");
-        }
-        else{
+        } else{
             this.puertoArribo = puertoArribo;
         }
     }
 
     @Override
     public String toString() {
-        return "Contenedor:\n" + "id=" + id + "\n\tpeso=" + peso + "\n\tpuertoArribo=" + puertoArribo;
+        return "Contenedor:\t" + "id=" + id + "\tpeso=" + peso + "\tpuertoArribo=" + puertoArribo;
     }
 }
