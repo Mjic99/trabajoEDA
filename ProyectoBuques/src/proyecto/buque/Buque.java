@@ -40,16 +40,16 @@ public class Buque {
     
     public void getInfoContenedores() {
         Contenedor[] contenedoresOrdenados = contenedores;
-        for (int i=0; i<numeroContenedores; i++){
-            for(int j=0; j<numeroContenedores-1; j++){
-                if (contenedoresOrdenados[j].getId() > contenedoresOrdenados[j+1].getId()){
+        for (int i = 0; i < numeroContenedores; i++){
+            for(int j = 0; j < numeroContenedores - 1; j++){
+                if (contenedoresOrdenados[j].getId() > contenedoresOrdenados[j + 1].getId()){
                     Contenedor temp = contenedoresOrdenados[j];
-                    contenedoresOrdenados[j] = contenedoresOrdenados[j+1];
-                    contenedoresOrdenados[j+1] = temp;
+                    contenedoresOrdenados[j] = contenedoresOrdenados[j + 1];
+                    contenedoresOrdenados[j + 1] = temp;
                 }
             }
         }
-        for(int i=0; i<numeroContenedores; i++){
+        for(int i = 0; i < numeroContenedores; i++){
             System.out.println("Contenedor con ID: " + contenedoresOrdenados[i].getId()+", peso: " +  contenedoresOrdenados[i].getPeso() + " y puerto: " + contenedoresOrdenados[i].getPuertoArribo());
         }
     }
