@@ -1,12 +1,14 @@
 package misClases;
 
 import java.util.Random;
+
+import com.sun.istack.internal.Nullable;
 import misArchivosCola.ArrayCola;
 
 public class Usuario {
     private String nombre, password;
     private int cantMensajes;
-    private ArrayCola<Mensaje> buzon;
+    private ArrayCola<Mensaje> buzon = new ArrayCola<>();
 
     public Usuario(String nombre, String password) {
         this.nombre = nombre;
@@ -21,18 +23,18 @@ public class Usuario {
     public String getPassword() {
         return password;
     }
-    
+
+    @Nullable
     public Mensaje eliminar(){
         if (cantMensajes==0){
             System.out.println("¡No hay mensajes!");
             return null;
         }
-        Random r = new Random();
-        int num = r.nextInt(cantMensajes)+1;
+        int num = new Random().nextInt(cantMensajes) + 1;
         Mensaje mensaje = null;
         ArrayCola<Mensaje> aux = new ArrayCola<>();
         int i = 1;
-        while(!buzon.esVacia()){
+        while(!buzon.colaVacia()){
             if(i==num){
                 mensaje = buzon.desencolar();
             }
@@ -41,9 +43,13 @@ public class Usuario {
             }
             i++;
         }
-        while(!aux.esVacia()){
+        while(!aux.colaVacia()){
             buzon.encolar(aux.desencolar());
         }
         return mensaje;
+    }
+
+    public void agregar(Mensaje mensaje) {
+        buzon.encolar(mensaje);
     }
 }

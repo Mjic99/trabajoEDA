@@ -1,61 +1,80 @@
 package misArchivosLista;
 
+import misClases.Mensaje;
 import misClases.Usuario;
 
 public class ListaLEG<E extends Usuario> {
-    private NodoLEG<E> primero;
+
+    private NodoLEG<E> nodo;
     private int talla; 
 
     public ListaLEG() {
-        this.primero=null;
-        this.talla=0;
+        nodo = null;
+        talla = 0;
     }
-    public NodoLEG<E> getPrimero() {
-        return primero;
+
+    public NodoLEG<E> getNodo() {
+        return nodo;
     }
     public int getTalla() {
         return talla;
     }
     
     public void insertarAlInicio(E x){        
-        NodoLEG<E> nuevo=new NodoLEG<>(x);        
-        nuevo.setSiguiente(primero);        
-        primero = nuevo;
+        NodoLEG<E> nuevo = new NodoLEG<>(x);
+        nuevo.setSiguiente(nodo);
+        nodo = nuevo;
         talla++;
     }
     public void insertarAlFinal(E x){        
-        NodoLEG<E> nuevo=new NodoLEG<>(x);    
-        NodoLEG<E> aux=primero;
+        NodoLEG<E> nuevo = new NodoLEG<>(x);
+        NodoLEG<E> aux = nodo;
         
-        if(primero ==null){
-            primero=nuevo;
-        }else{
-            while(aux.getSiguiente()!=null){
-                aux=aux.getSiguiente();
+        if (nodo == null) {
+            nodo = nuevo;
+        } else {
+            while (aux.getSiguiente() != null) {
+                aux = aux.getSiguiente();
             }
             aux.setSiguiente(nuevo);
         }
         talla++;       
     }
+
+    public void enviarMensaje(String userName, Mensaje mensaje) {
+        NodoLEG<E> ptr = nodo;
+        boolean found = false;
+        while (ptr != null) {
+            if (ptr.getInfo().getNombre().equals(userName)) {
+                ptr.getInfo().agregar(mensaje);
+                found = true;
+                break;
+            }
+            ptr = ptr.getSiguiente();
+        }
+        if (!found) {
+            System.out.println("¡El usuario no existe!");
+        }
+    }
     
     public void agregarUsuario(E user){
         NodoLEG<E> nuevo = new NodoLEG<>(user);
-        NodoLEG<E> ptr = primero;
-        if(primero.getDato().getNombre().compareToIgnoreCase(user.getNombre())<0){
+        NodoLEG<E> ptr = nodo;
+        if (nodo.getInfo().getNombre().compareToIgnoreCase(user.getNombre())<0) {
             insertarAlInicio(user);
             return;
         }
-        while(ptr!=null){
-            if(ptr.getDato().getNombre().equalsIgnoreCase(user.getNombre())){
+        while (ptr != null){
+            if (ptr.getInfo().getNombre().equalsIgnoreCase(user.getNombre())) {
                 System.out.println("¡El usuario ya existe!");
                 return;
             }
-            if(ptr.getDato().getNombre().compareToIgnoreCase(user.getNombre())<0){
+            if (ptr.getInfo().getNombre().compareToIgnoreCase(user.getNombre())<0) {
                 if(ptr.getSiguiente()==null){
                     insertarAlFinal(user);
                     break;
                 }
-                else if(ptr.getSiguiente().getDato().getNombre().compareToIgnoreCase(user.getNombre())>0){
+                else if (ptr.getSiguiente().getInfo().getNombre().compareToIgnoreCase(user.getNombre()) > 0) {
                     nuevo.setSiguiente(ptr.getSiguiente());
                     ptr.setSiguiente(nuevo);
                     break; 

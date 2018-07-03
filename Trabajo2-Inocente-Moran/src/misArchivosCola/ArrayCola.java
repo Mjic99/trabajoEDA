@@ -1,14 +1,15 @@
 package misArchivosCola;
 
 public class ArrayCola<E> implements Cola<E>{
-    protected static final int TAMAÑO=50;
-    protected E []arC;
-    protected int frentec,finalc;
+
+    private static final int TAMAÑO = 50;
+    private E[] arC;
+    private int frentec, finalc;
 
     public ArrayCola() {
-        arC=(E[])new Object[TAMAÑO];
-        frentec=-1;
-        finalc=-1;
+        arC = (E[]) new Object[TAMAÑO];
+        frentec = -1;
+        finalc = -1;
     }
 
     public E[] getArC() {
@@ -22,7 +23,7 @@ public class ArrayCola<E> implements Cola<E>{
     }
    
     @Override
-     public boolean esVacia(){
+     public boolean colaVacia(){
         return (frentec==-1 && finalc==-1);
      }
      
@@ -31,7 +32,7 @@ public class ArrayCola<E> implements Cola<E>{
         if((frentec==0 && finalc ==arC.length-1) || frentec==finalc+1){
             System.out.println("Cola llena ....");
         }else{
-            if(esVacia()){
+            if(colaVacia()){
                 frentec=0;
             }
             if(finalc==arC.length-1){ 
@@ -45,7 +46,7 @@ public class ArrayCola<E> implements Cola<E>{
     
      @Override
     public E desencolar(){        
-        E elPrimero=arC[frentec];
+        E elPrimero = arC[frentec];
         
         if(frentec==finalc){
             frentec=-1;

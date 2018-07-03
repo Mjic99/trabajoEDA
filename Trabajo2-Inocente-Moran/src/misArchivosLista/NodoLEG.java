@@ -1,23 +1,26 @@
 package misArchivosLista;
 
 
+import com.sun.istack.internal.Nullable;
+
 public class NodoLEG<E> {
-    private E dato;
+    private E info;
     private NodoLEG<E> siguiente;
 
-    public NodoLEG(E dato) {
-        this.dato = dato;
-        this.siguiente=null;
+    public NodoLEG(E info) {
+        this.info = info;
+        this.siguiente = null;
     }
 
-    public E getDato() {
-        return dato;
+    public E getInfo() {
+        return info;
     }
 
-    public void setDato(E dato) {
-        this.dato = dato;
+    public void setInfo(E info) {
+        this.info = info;
     }
 
+    @Nullable
     public NodoLEG<E> getSiguiente() {
         return siguiente;
     }
