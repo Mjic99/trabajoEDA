@@ -2,6 +2,7 @@ package miVentana;
 
 import javax.swing.JOptionPane;
 import misArchivosLista.ListaLEG;
+import misClases.Mensaje;
 import misClases.Usuario;
 
 public class MiFormulario extends javax.swing.JFrame {
@@ -78,6 +79,11 @@ public class MiFormulario extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTextAreaMensaje);
 
         jButtonEnviarM.setText("Enviar mensaje");
+        jButtonEnviarM.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEnviarMActionPerformed(evt);
+            }
+        });
 
         jLabel8.setText("Fecha :");
 
@@ -332,6 +338,17 @@ public class MiFormulario extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Información incompleta");
         }
     }//GEN-LAST:event_addUserButtonActionPerformed
+
+    private void jButtonEnviarMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEnviarMActionPerformed
+        if (fieldIsValid(jTextFieldUsuarioD, jTextFieldUsuarioO, jTextFieldFecha)){
+            userManager.enviarMensaje(jTextFieldUsuarioD.getText(), 
+                new Mensaje(jTextAreaMensaje.getText(),jTextFieldFecha.getText()));
+            jTextFieldUsuarioD.setText("");
+            jTextAreaMensaje.setText("");
+        } else {
+            JOptionPane.showMessageDialog(null, "Información incompleta");
+        }
+    }//GEN-LAST:event_jButtonEnviarMActionPerformed
 
     private boolean fieldIsValid(javax.swing.JTextField... fields) {
         boolean isValid = true;
