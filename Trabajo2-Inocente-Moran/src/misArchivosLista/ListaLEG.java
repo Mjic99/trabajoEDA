@@ -69,11 +69,11 @@ public class ListaLEG<E extends Usuario> {
                 System.out.println("¡El usuario ya existe!");
                 return;
             }
-            if (ptr.getInfo().getNombre().compareToIgnoreCase(user.getNombre())<0) {
+            if (ptr.getInfo().getNombre().compareToIgnoreCase(user.getNombre())>0) {
                 if(ptr.getSiguiente() == null){
                     insertarAlFinal(user);
                     break;
-                } else if (ptr.getSiguiente().getInfo().getNombre().compareToIgnoreCase(user.getNombre()) > 0) {
+                } else if (ptr.getSiguiente().getInfo().getNombre().compareToIgnoreCase(user.getNombre()) < 0) {
                     nuevo.setSiguiente(ptr.getSiguiente());
                     ptr.setSiguiente(nuevo);
                     break; 

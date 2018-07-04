@@ -365,7 +365,7 @@ public class MiFormulario extends javax.swing.JFrame {
         NodoLEG<Usuario> ptr = userManager.getNodo();
         while(ptr!= null){
             String[] row = {ptr.getInfo().getNombre(),ptr.getInfo().getPassword(),String.valueOf(ptr.getInfo().getCantMensajes())};
-            modelo.addRow(row);
+            modelo.insertRow(0, row);
             ptr=ptr.getSiguiente();
         }
         jTableListadoUsuario.setModel(modelo);
