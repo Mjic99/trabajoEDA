@@ -1,7 +1,9 @@
 package miVentana;
 
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import misArchivosLista.ListaLEG;
+import misArchivosLista.NodoLEG;
 import misClases.Mensaje;
 import misClases.Usuario;
 
@@ -215,6 +217,11 @@ public class MiFormulario extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTableListadoUsuario);
 
         jButtonVerListado.setText("Ver Lista");
+        jButtonVerListado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVerListadoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -349,6 +356,20 @@ public class MiFormulario extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Información incompleta");
         }
     }//GEN-LAST:event_jButtonEnviarMActionPerformed
+
+    private void jButtonVerListadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVerListadoActionPerformed
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Password");
+        modelo.addColumn("Mensajes en buzón");
+        NodoLEG<Usuario> ptr = userManager.getNodo();
+        while(ptr!= null){
+            String[] row = {ptr.getInfo().getNombre(),ptr.getInfo().getPassword(),String.valueOf(ptr.getInfo().getCantMensajes())};
+            modelo.addRow(row);
+            ptr=ptr.getSiguiente();
+        }
+        jTableListadoUsuario.setModel(modelo);
+    }//GEN-LAST:event_jButtonVerListadoActionPerformed
 
     private boolean fieldIsValid(javax.swing.JTextField... fields) {
         boolean isValid = true;
