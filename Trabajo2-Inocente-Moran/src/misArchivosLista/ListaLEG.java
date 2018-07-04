@@ -46,7 +46,7 @@ public class ListaLEG<E extends Usuario> {
         boolean found = false;
         while (ptr != null) {
             if (ptr.getInfo().getNombre().equals(userName)) {
-                ptr.getInfo().agregar(mensaje);
+                ptr.getInfo().agregarACola(mensaje);
                 found = true;
                 break;
             }
