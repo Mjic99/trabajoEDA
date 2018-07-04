@@ -25,7 +25,7 @@ public class Usuario {
     }
 
     @Nullable
-    public Mensaje eliminar(){
+    public Mensaje eliminarDeCola(){
         if (cantMensajes==0){
             System.out.println("¡No hay mensajes!");
             return null;
@@ -49,7 +49,7 @@ public class Usuario {
         return mensaje;
     }
 
-    public void agregar(Mensaje mensaje) {
+    public void agregarACola(Mensaje mensaje) {
         buzon.encolar(mensaje);
     }
 
