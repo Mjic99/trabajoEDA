@@ -1,5 +1,6 @@
 package miVentana;
 
+import javax.swing.JOptionPane;
 import misArchivosLista.ListaLEG;
 import misClases.Usuario;
 
@@ -324,6 +325,11 @@ public class MiFormulario extends javax.swing.JFrame {
         if (fieldIsValid(userField, passwordField)) {
             Usuario user = new Usuario(userField.getText(), passwordField.getText());
             userManager.agregarUsuario(user);
+            System.out.println(user.toString());
+            userField.setText("");
+            passwordField.setText("");
+        } else {
+            JOptionPane.showMessageDialog(null, "Información incompleta");
         }
     }//GEN-LAST:event_addUserButtonActionPerformed
 

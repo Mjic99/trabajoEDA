@@ -52,4 +52,10 @@ public class Usuario {
     public void agregar(Mensaje mensaje) {
         buzon.encolar(mensaje);
     }
+
+    @Override
+    public String toString() {
+        return "Usuario{" + "nombre=" + nombre + ", password=" + password + ", cantMensajes=" + cantMensajes + '}';
+    }
+    
 }

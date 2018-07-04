@@ -12,23 +12,23 @@ public class ArrayCola<E> implements Cola<E>{
         finalc = -1;
     }
 
-    public E[] getArC() {
-        return arC;
-    }
     public int getFrentec() {
         return frentec;
     }
     public int getFinalc() {
         return finalc;
     }
+    public E[] getArC() {
+        return arC;
+    }
    
     @Override
-     public boolean colaVacia(){
+     public boolean colaVacia() {
         return (frentec==-1 && finalc==-1);
      }
      
     @Override
-    public void encolar (E x){            
+    public void encolar(E x){
         if((frentec==0 && finalc ==arC.length-1) || frentec==finalc+1){
             System.out.println("Cola llena ....");
         }else{
