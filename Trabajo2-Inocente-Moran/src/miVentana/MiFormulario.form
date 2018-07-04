@@ -147,7 +147,7 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="jButtonAgregarU" alignment="1" min="-2" pref="164" max="-2" attributes="0"/>
+                                  <Component id="addUserButton" alignment="1" min="-2" pref="164" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -156,11 +156,11 @@
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" alignment="0" attributes="0">
                                               <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
-                                              <Component id="jTextFieldUsuario" min="-2" pref="144" max="-2" attributes="0"/>
+                                              <Component id="userField" min="-2" pref="144" max="-2" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
                                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="jTextFieldPasw" min="-2" pref="144" max="-2" attributes="0"/>
+                                              <Component id="passwordField" min="-2" pref="144" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -179,15 +179,15 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldUsuario" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="userField" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldPasw" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="passwordField" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="jButtonAgregarU" min="-2" pref="37" max="-2" attributes="0"/>
+                      <Component id="addUserButton" min="-2" pref="37" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jPanel5" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -201,14 +201,14 @@
                 <Property name="text" type="java.lang.String" value="Usuario"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextFieldUsuario">
+            <Component class="javax.swing.JTextField" name="userField">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel3">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Password"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="jTextFieldPasw">
+            <Component class="javax.swing.JTextField" name="passwordField">
             </Component>
             <Container class="javax.swing.JPanel" name="jPanel5">
               <Properties>
@@ -349,10 +349,13 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JButton" name="jButtonAgregarU">
+            <Component class="javax.swing.JButton" name="addUserButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Agregar Nuevo Usuario"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addUserButtonActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

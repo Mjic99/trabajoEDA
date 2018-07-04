@@ -1,7 +1,11 @@
 package miVentana;
 
+import misArchivosLista.ListaLEG;
+import misClases.Usuario;
+
 public class MiFormulario extends javax.swing.JFrame {
 
+    private ListaLEG<Usuario> userManager = new ListaLEG<>();
     /**
      * Creates new form MiFormulario
      */
@@ -21,9 +25,9 @@ public class MiFormulario extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jTextFieldUsuario = new javax.swing.JTextField();
+        userField = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextFieldPasw = new javax.swing.JTextField();
+        passwordField = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -35,7 +39,7 @@ public class MiFormulario extends javax.swing.JFrame {
         jButtonEnviarM = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jTextFieldFecha = new javax.swing.JTextField();
-        jButtonAgregarU = new javax.swing.JButton();
+        addUserButton = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableListadoUsuario = new javax.swing.JTable();
@@ -134,7 +138,12 @@ public class MiFormulario extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jButtonAgregarU.setText("Agregar Nuevo Usuario");
+        addUserButton.setText("Agregar Nuevo Usuario");
+        addUserButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addUserButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -145,7 +154,7 @@ public class MiFormulario extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButtonAgregarU, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(addUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel2)
@@ -153,10 +162,10 @@ public class MiFormulario extends javax.swing.JFrame {
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addGap(17, 17, 17)
-                                        .addComponent(jTextFieldUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(userField, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addGap(18, 18, 18)
-                                        .addComponent(jTextFieldPasw, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -167,13 +176,13 @@ public class MiFormulario extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextFieldUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(userField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextFieldPasw, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jButtonAgregarU, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(addUserButton, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -311,6 +320,23 @@ public class MiFormulario extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void addUserButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addUserButtonActionPerformed
+        if (fieldIsValid(userField, passwordField)) {
+            Usuario user = new Usuario(userField.getText(), passwordField.getText());
+            userManager.agregarUsuario(user);
+        }
+    }//GEN-LAST:event_addUserButtonActionPerformed
+
+    private boolean fieldIsValid(javax.swing.JTextField... fields) {
+        boolean isValid = true;
+        for (javax.swing.JTextField field : fields) {
+            if (field.getText() == null || field.getText().isEmpty()) {
+                isValid = false;
+            }
+        }
+        return isValid;
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -348,7 +374,7 @@ public class MiFormulario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonAgregarU;
+    private javax.swing.JButton addUserButton;
     private javax.swing.JButton jButtonEnviarM;
     private javax.swing.JButton jButtonSalir;
     private javax.swing.JButton jButtonVerListado;
@@ -371,10 +397,10 @@ public class MiFormulario extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextAreaMensaje;
     private javax.swing.JTextField jTextFieldFecha;
     private javax.swing.JTextField jTextFieldPBuscar;
-    private javax.swing.JTextField jTextFieldPasw;
     private javax.swing.JTextField jTextFieldUBuscar;
-    private javax.swing.JTextField jTextFieldUsuario;
     private javax.swing.JTextField jTextFieldUsuarioD;
     private javax.swing.JTextField jTextFieldUsuarioO;
+    private javax.swing.JTextField passwordField;
+    private javax.swing.JTextField userField;
     // End of variables declaration//GEN-END:variables
 }

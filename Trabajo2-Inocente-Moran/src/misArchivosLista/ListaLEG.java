@@ -60,7 +60,7 @@ public class ListaLEG<E extends Usuario> {
     public void agregarUsuario(E user){
         NodoLEG<E> nuevo = new NodoLEG<>(user);
         NodoLEG<E> ptr = nodo;
-        if (nodo.getInfo().getNombre().compareToIgnoreCase(user.getNombre())<0) {
+        if (nodo == null || nodo.getInfo().getNombre().compareToIgnoreCase(user.getNombre()) < 0) {
             insertarAlInicio(user);
             return;
         }
@@ -70,11 +70,10 @@ public class ListaLEG<E extends Usuario> {
                 return;
             }
             if (ptr.getInfo().getNombre().compareToIgnoreCase(user.getNombre())<0) {
-                if(ptr.getSiguiente()==null){
+                if(ptr.getSiguiente() == null){
                     insertarAlFinal(user);
                     break;
-                }
-                else if (ptr.getSiguiente().getInfo().getNombre().compareToIgnoreCase(user.getNombre()) > 0) {
+                } else if (ptr.getSiguiente().getInfo().getNombre().compareToIgnoreCase(user.getNombre()) > 0) {
                     nuevo.setSiguiente(ptr.getSiguiente());
                     ptr.setSiguiente(nuevo);
                     break; 
