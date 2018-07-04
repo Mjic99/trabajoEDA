@@ -24,6 +24,10 @@ public class Usuario {
         return password;
     }
 
+    public int getCantMensajes() {
+        return cantMensajes;
+    }
+
     @Nullable
     public Mensaje eliminarDeCola(){
         if (cantMensajes==0){
@@ -51,6 +55,7 @@ public class Usuario {
 
     public void agregarACola(Mensaje mensaje) {
         buzon.encolar(mensaje);
+        cantMensajes++;
     }
 
     @Override
