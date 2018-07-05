@@ -41,18 +41,25 @@ public class ListaLEG<E extends Usuario> {
         talla++;       
     }
 
-    public void enviarMensaje(String userName, Mensaje mensaje) {
+    public void enviarMensaje(String senderName, String destinationName, Mensaje mensaje) {
         NodoLEG<E> ptr = nodo;
-        boolean found = false;
+        NodoLEG<E> destination = null;
+        boolean foundSender = false;
+        boolean foundDestination = false;
         while (ptr != null) {
-            if (ptr.getInfo().getNombre().equals(userName)) {
-                ptr.getInfo().agregarACola(mensaje);
-                found = true;
+            if (ptr.getInfo().getNombre().equals(senderName)) {
+                foundSender = true;
+            } else if (ptr.getInfo().getNombre().equals(destinationName)) {
+                destination = ptr;
+                foundDestination = true;
+            }
+            if (foundSender && foundDestination) {
+                destination.getInfo().agregarACola(mensaje);
                 break;
             }
             ptr = ptr.getSiguiente();
         }
-        if (!found) {
+        if (!foundSender || !foundDestination) {
             System.out.println("¡El usuario no existe!");
         }
     }

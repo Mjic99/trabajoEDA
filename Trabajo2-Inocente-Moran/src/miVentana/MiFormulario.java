@@ -35,25 +35,25 @@ public class MiFormulario extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextFieldUsuarioO = new javax.swing.JTextField();
-        jTextFieldUsuarioD = new javax.swing.JTextField();
+        senderUser = new javax.swing.JTextField();
+        destinationUser = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextAreaMensaje = new javax.swing.JTextArea();
-        jButtonEnviarM = new javax.swing.JButton();
+        messageField = new javax.swing.JTextArea();
+        sendMessage = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
-        jTextFieldFecha = new javax.swing.JTextField();
+        dateField = new javax.swing.JTextField();
         addUserButton = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTableListadoUsuario = new javax.swing.JTable();
-        jButtonVerListado = new javax.swing.JButton();
-        jButtonVerMensaje = new javax.swing.JButton();
-        jTextFieldUBuscar = new javax.swing.JTextField();
+        userTable = new javax.swing.JTable();
+        seeUserTable = new javax.swing.JButton();
+        seeMessages = new javax.swing.JButton();
+        userLoginField = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        jTextFieldPBuscar = new javax.swing.JTextField();
-        jButtonSalir = new javax.swing.JButton();
+        passwordLoginField = new javax.swing.JTextField();
+        exitButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gestión de un Servidor de Correo");
@@ -76,14 +76,14 @@ public class MiFormulario extends javax.swing.JFrame {
 
         jLabel6.setText("Ingrese mensaje:");
 
-        jTextAreaMensaje.setColumns(20);
-        jTextAreaMensaje.setRows(5);
-        jScrollPane1.setViewportView(jTextAreaMensaje);
+        messageField.setColumns(20);
+        messageField.setRows(5);
+        jScrollPane1.setViewportView(messageField);
 
-        jButtonEnviarM.setText("Enviar mensaje");
-        jButtonEnviarM.addActionListener(new java.awt.event.ActionListener() {
+        sendMessage.setText("Enviar mensaje");
+        sendMessage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonEnviarMActionPerformed(evt);
+                sendMessageActionPerformed(evt);
             }
         });
 
@@ -103,18 +103,18 @@ public class MiFormulario extends javax.swing.JFrame {
                                     .addGroup(jPanel5Layout.createSequentialGroup()
                                         .addComponent(jLabel4)
                                         .addGap(18, 18, 18)
-                                        .addComponent(jTextFieldUsuarioO, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(senderUser, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel5Layout.createSequentialGroup()
                                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel5)
                                             .addComponent(jLabel8))
                                         .addGap(10, 10, 10)
                                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jTextFieldUsuarioD)
-                                            .addComponent(jTextFieldFecha)))))
+                                            .addComponent(destinationUser)
+                                            .addComponent(dateField)))))
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addGap(52, 52, 52)
-                                .addComponent(jButtonEnviarM))
+                                .addComponent(sendMessage))
                             .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(jLabel6)))
@@ -129,21 +129,21 @@ public class MiFormulario extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextFieldUsuarioO, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(senderUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextFieldUsuarioD, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(destinationUser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextFieldFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dateField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonEnviarM)
+                .addComponent(sendMessage)
                 .addContainerGap())
         );
 
@@ -200,7 +200,7 @@ public class MiFormulario extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(204, 204, 255));
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Listado de Usuarios", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Comic Sans MS", 0, 14))); // NOI18N
 
-        jTableListadoUsuario.setModel(new javax.swing.table.DefaultTableModel(
+        userTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -214,12 +214,12 @@ public class MiFormulario extends javax.swing.JFrame {
                 "Nombre Usuario", "Password", "Cant. de Mensajes"
             }
         ));
-        jScrollPane2.setViewportView(jTableListadoUsuario);
+        jScrollPane2.setViewportView(userTable);
 
-        jButtonVerListado.setText("Ver Lista");
-        jButtonVerListado.addActionListener(new java.awt.event.ActionListener() {
+        seeUserTable.setText("Ver Lista");
+        seeUserTable.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonVerListadoActionPerformed(evt);
+                seeUserTableActionPerformed(evt);
             }
         });
 
@@ -234,7 +234,7 @@ public class MiFormulario extends javax.swing.JFrame {
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(114, 114, 114)
-                        .addComponent(jButtonVerListado, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(seeUserTable, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(19, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -243,19 +243,19 @@ public class MiFormulario extends javax.swing.JFrame {
                 .addGap(4, 4, 4)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonVerListado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(seeUserTable, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jButtonVerMensaje.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
-        jButtonVerMensaje.setText("Ver Mensaje de su Buzón");
-        jButtonVerMensaje.setActionCommand("   SALIR");
+        seeMessages.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
+        seeMessages.setText("Ver Mensaje de su Buzón");
+        seeMessages.setActionCommand("   SALIR");
 
         jLabel1.setText("Usuario:");
 
         jLabel7.setText("Password:");
 
-        jButtonSalir.setText("SALIR");
+        exitButton.setText("SALIR");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -270,20 +270,20 @@ public class MiFormulario extends javax.swing.JFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(27, 27, 27)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextFieldUBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(userLoginField, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel1))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel7)
-                                    .addComponent(jTextFieldPBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(passwordLoginField, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(43, 43, 43)
-                                        .addComponent(jButtonSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
                                         .addGap(35, 35, 35)
-                                        .addComponent(jButtonVerMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(seeMessages, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(0, 0, Short.MAX_VALUE)))
                         .addGap(28, 28, 28))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -305,12 +305,12 @@ public class MiFormulario extends javax.swing.JFrame {
                             .addComponent(jLabel7))
                         .addGap(4, 4, 4)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextFieldUBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldPBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(userLoginField, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(passwordLoginField, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(jButtonVerMensaje, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(seeMessages, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButtonSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(23, Short.MAX_VALUE))
         );
 
@@ -346,18 +346,17 @@ public class MiFormulario extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_addUserButtonActionPerformed
 
-    private void jButtonEnviarMActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEnviarMActionPerformed
-        if (fieldIsValid(jTextFieldUsuarioD, jTextFieldUsuarioO, jTextFieldFecha)){
-            userManager.enviarMensaje(jTextFieldUsuarioD.getText(), 
-                new Mensaje(jTextAreaMensaje.getText(),jTextFieldFecha.getText()));
-            jTextFieldUsuarioD.setText("");
-            jTextAreaMensaje.setText("");
+    private void sendMessageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendMessageActionPerformed
+        if (fieldIsValid(destinationUser, senderUser, dateField)){
+            userManager.enviarMensaje(senderUser.getText(), destinationUser.getText(), new Mensaje(messageField.getText(),dateField.getText()));
+            destinationUser.setText("");
+            messageField.setText("");
         } else {
             JOptionPane.showMessageDialog(null, "Información incompleta");
         }
-    }//GEN-LAST:event_jButtonEnviarMActionPerformed
+    }//GEN-LAST:event_sendMessageActionPerformed
 
-    private void jButtonVerListadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVerListadoActionPerformed
+    private void seeUserTableActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seeUserTableActionPerformed
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("Nombre");
         modelo.addColumn("Password");
@@ -368,8 +367,8 @@ public class MiFormulario extends javax.swing.JFrame {
             modelo.insertRow(0, row);
             ptr=ptr.getSiguiente();
         }
-        jTableListadoUsuario.setModel(modelo);
-    }//GEN-LAST:event_jButtonVerListadoActionPerformed
+        userTable.setModel(modelo);
+    }//GEN-LAST:event_seeUserTableActionPerformed
 
     private boolean fieldIsValid(javax.swing.JTextField... fields) {
         boolean isValid = true;
@@ -419,10 +418,9 @@ public class MiFormulario extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addUserButton;
-    private javax.swing.JButton jButtonEnviarM;
-    private javax.swing.JButton jButtonSalir;
-    private javax.swing.JButton jButtonVerListado;
-    private javax.swing.JButton jButtonVerMensaje;
+    private javax.swing.JTextField dateField;
+    private javax.swing.JTextField destinationUser;
+    private javax.swing.JButton exitButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -437,14 +435,15 @@ public class MiFormulario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTableListadoUsuario;
-    private javax.swing.JTextArea jTextAreaMensaje;
-    private javax.swing.JTextField jTextFieldFecha;
-    private javax.swing.JTextField jTextFieldPBuscar;
-    private javax.swing.JTextField jTextFieldUBuscar;
-    private javax.swing.JTextField jTextFieldUsuarioD;
-    private javax.swing.JTextField jTextFieldUsuarioO;
+    private javax.swing.JTextArea messageField;
     private javax.swing.JTextField passwordField;
+    private javax.swing.JTextField passwordLoginField;
+    private javax.swing.JButton seeMessages;
+    private javax.swing.JButton seeUserTable;
+    private javax.swing.JButton sendMessage;
+    private javax.swing.JTextField senderUser;
     private javax.swing.JTextField userField;
+    private javax.swing.JTextField userLoginField;
+    private javax.swing.JTable userTable;
     // End of variables declaration//GEN-END:variables
 }

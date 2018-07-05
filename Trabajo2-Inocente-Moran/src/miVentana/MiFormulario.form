@@ -61,24 +61,24 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jTextFieldUBuscar" min="-2" pref="142" max="-2" attributes="0"/>
+                                      <Component id="userLoginField" min="-2" pref="142" max="-2" attributes="0"/>
                                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTextFieldPBuscar" min="-2" pref="157" max="-2" attributes="0"/>
+                                      <Component id="passwordLoginField" min="-2" pref="157" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
-                                          <Component id="jButtonSalir" min="-2" pref="75" max="-2" attributes="0"/>
+                                          <Component id="exitButton" min="-2" pref="75" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
-                                          <Component id="jButtonVerMensaje" min="-2" pref="223" max="-2" attributes="0"/>
+                                          <Component id="seeMessages" min="-2" pref="223" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -110,13 +110,13 @@
                           </Group>
                           <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jTextFieldUBuscar" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
-                              <Component id="jTextFieldPBuscar" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                              <Component id="userLoginField" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                              <Component id="passwordLoginField" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jButtonVerMensaje" min="-2" pref="39" max="-2" attributes="0"/>
+                          <Component id="seeMessages" min="-2" pref="39" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jButtonSalir" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="exitButton" min="-2" pref="30" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="23" max="32767" attributes="0"/>
@@ -237,7 +237,7 @@
                                               <Group type="102" alignment="0" attributes="0">
                                                   <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                  <Component id="jTextFieldUsuarioO" min="-2" pref="102" max="-2" attributes="0"/>
+                                                  <Component id="senderUser" min="-2" pref="102" max="-2" attributes="0"/>
                                               </Group>
                                               <Group type="102" alignment="0" attributes="0">
                                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -246,15 +246,15 @@
                                                   </Group>
                                                   <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="jTextFieldUsuarioD" max="32767" attributes="0"/>
-                                                      <Component id="jTextFieldFecha" max="32767" attributes="0"/>
+                                                      <Component id="destinationUser" max="32767" attributes="0"/>
+                                                      <Component id="dateField" max="32767" attributes="0"/>
                                                   </Group>
                                               </Group>
                                           </Group>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
-                                          <Component id="jButtonEnviarM" min="-2" max="-2" attributes="0"/>
+                                          <Component id="sendMessage" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace max="-2" attributes="0"/>
@@ -277,16 +277,16 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jTextFieldUsuarioO" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="senderUser" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTextFieldUsuarioD" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="destinationUser" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace pref="18" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTextFieldFecha" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="dateField" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
@@ -294,7 +294,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jButtonEnviarM" min="-2" max="-2" attributes="0"/>
+                          <Component id="sendMessage" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -311,9 +311,9 @@
                     <Property name="text" type="java.lang.String" value="Usuario Destino:"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextFieldUsuarioO">
+                <Component class="javax.swing.JTextField" name="senderUser">
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextFieldUsuarioD">
+                <Component class="javax.swing.JTextField" name="destinationUser">
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel6">
                   <Properties>
@@ -327,7 +327,7 @@
 
                   <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                   <SubComponents>
-                    <Component class="javax.swing.JTextArea" name="jTextAreaMensaje">
+                    <Component class="javax.swing.JTextArea" name="messageField">
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
@@ -335,12 +335,12 @@
                     </Component>
                   </SubComponents>
                 </Container>
-                <Component class="javax.swing.JButton" name="jButtonEnviarM">
+                <Component class="javax.swing.JButton" name="sendMessage">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Enviar mensaje"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonEnviarMActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sendMessageActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel8">
@@ -348,7 +348,7 @@
                     <Property name="text" type="java.lang.String" value="Fecha :"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextFieldFecha">
+                <Component class="javax.swing.JTextField" name="dateField">
                 </Component>
               </SubComponents>
             </Container>
@@ -387,7 +387,7 @@
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace min="-2" pref="114" max="-2" attributes="0"/>
-                              <Component id="jButtonVerListado" min="-2" pref="103" max="-2" attributes="0"/>
+                              <Component id="seeUserTable" min="-2" pref="103" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace pref="19" max="32767" attributes="0"/>
@@ -400,7 +400,7 @@
                       <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
                       <Component id="jScrollPane2" min="-2" pref="179" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jButtonVerListado" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="seeUserTable" min="-2" pref="30" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -414,7 +414,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="jTableListadoUsuario">
+                <Component class="javax.swing.JTable" name="userTable">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="3" rowCount="7">
@@ -427,17 +427,17 @@
                 </Component>
               </SubComponents>
             </Container>
-            <Component class="javax.swing.JButton" name="jButtonVerListado">
+            <Component class="javax.swing.JButton" name="seeUserTable">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Ver Lista"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonVerListadoActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="seeUserTableActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JButton" name="jButtonVerMensaje">
+        <Component class="javax.swing.JButton" name="seeMessages">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Comic Sans MS" size="14" style="0"/>
@@ -446,7 +446,7 @@
             <Property name="actionCommand" type="java.lang.String" value="   SALIR"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldUBuscar">
+        <Component class="javax.swing.JTextField" name="userLoginField">
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
           <Properties>
@@ -458,9 +458,9 @@
             <Property name="text" type="java.lang.String" value="Password:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="jTextFieldPBuscar">
+        <Component class="javax.swing.JTextField" name="passwordLoginField">
         </Component>
-        <Component class="javax.swing.JButton" name="jButtonSalir">
+        <Component class="javax.swing.JButton" name="exitButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="SALIR"/>
           </Properties>
