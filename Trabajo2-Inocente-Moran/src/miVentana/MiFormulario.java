@@ -401,26 +401,15 @@ public class MiFormulario extends javax.swing.JFrame {
     }//GEN-LAST:event_seeUserTableActionPerformed
 
     private void seeRandomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seeRandomActionPerformed
-        getMessage(false);
-    }//GEN-LAST:event_seeRandomActionPerformed
-
-    private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_exitButtonActionPerformed
-
-    private void seeMessagesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seeMessagesActionPerformed
-        getMessage(true);
-    }//GEN-LAST:event_seeMessagesActionPerformed
-
-    private void getMessage(boolean first) {
         if (fieldIsValid(userLoginField, passwordLoginField)) {
             NodoLEG<Usuario> ptr = userManager.getNodo();
             boolean loggedIn = false;
             while (ptr != null) {
                 if (ptr.getInfo().getNombre().equals(userLoginField.getText()) && ptr.getInfo().getPassword().equals(passwordLoginField.getText())) {
-                    Mensaje mensaje = ptr.getInfo().eliminarDeCola(first);
+                    Mensaje mensaje = ptr.getInfo().eliminarDeCola();
                     JOptionPane.showMessageDialog(null, mensaje != null ? mensaje.toString() : "¡No hay mensajes!");
                     loggedIn = true;
+                    break;
                 }
                 ptr = ptr.getSiguiente();
             }
@@ -428,7 +417,32 @@ public class MiFormulario extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Usuario incorrecto");
             }
         }
-    }
+    }//GEN-LAST:event_seeRandomActionPerformed
+
+    private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_exitButtonActionPerformed
+
+    private void seeMessagesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seeMessagesActionPerformed
+        if (fieldIsValid(userLoginField, passwordLoginField)) {
+            NodoLEG<Usuario> ptr = userManager.getNodo();
+            boolean loggedIn = false;
+            while (ptr != null) {
+                if (ptr.getInfo().getNombre().equals(userLoginField.getText()) && ptr.getInfo().getPassword().equals(passwordLoginField.getText())) {
+                    ListaLEG<Usuario> listaLEG = new ListaLEG<>();
+                    listaLEG.setNodo(ptr);
+                    Mensaje mensaje = listaLEG.getFirstMessage();
+                    JOptionPane.showMessageDialog(null, mensaje != null ? mensaje.toString() : "¡No hay mensajes!");
+                    loggedIn = true;
+                    break;
+                }
+                ptr = ptr.getSiguiente();
+            }
+            if (!loggedIn) {
+                JOptionPane.showMessageDialog(null, "Usuario incorrecto");
+            }
+        }
+    }//GEN-LAST:event_seeMessagesActionPerformed
     
     private boolean fieldIsValid(javax.swing.JTextField... fields) {
         boolean isValid = true;

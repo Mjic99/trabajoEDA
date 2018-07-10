@@ -3,6 +3,8 @@ package misArchivosLista;
 import misClases.Mensaje;
 import misClases.Usuario;
 
+import java.util.Random;
+
 public class ListaLEG<E extends Usuario> {
 
     private NodoLEG<E> nodo;
@@ -16,16 +18,26 @@ public class ListaLEG<E extends Usuario> {
     public NodoLEG<E> getNodo() {
         return nodo;
     }
+
     public int getTalla() {
         return talla;
     }
-    
-    public void insertarAlInicio(E x){        
+
+    public void setNodo(NodoLEG<E> nodo) {
+        this.nodo = nodo;
+    }
+
+    public void setTalla(int talla) {
+        this.talla = talla;
+    }
+
+    public void insertarAlInicio(E x){
         NodoLEG<E> nuevo = new NodoLEG<>(x);
         nuevo.setSiguiente(nodo);
         nodo = nuevo;
         talla++;
     }
+
     public void insertarAlFinal(E x){        
         NodoLEG<E> nuevo = new NodoLEG<>(x);
         NodoLEG<E> aux = nodo;
@@ -64,6 +76,18 @@ public class ListaLEG<E extends Usuario> {
             return false;
         }
         return true;
+    }
+
+    public Mensaje getFirstMessage() {
+        Usuario usuario = nodo.getInfo();
+        if (usuario.getCantMensajes() == 0){
+            System.out.println("¡No hay mensajes!");
+            return null;
+        }
+        Mensaje mensaje = usuario.getBuzon().desencolar();
+        nodo.getInfo().setCantMensajes(usuario.getCantMensajes() - 1);
+        if (nodo.getInfo().getCantMensajes() < 0) nodo.getInfo().setCantMensajes(0);
+        return mensaje;
     }
     
     public void agregarUsuario(E user){

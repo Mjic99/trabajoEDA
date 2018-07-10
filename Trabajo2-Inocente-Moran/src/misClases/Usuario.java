@@ -28,32 +28,46 @@ public class Usuario {
         return cantMensajes;
     }
 
+    public ArrayCola<Mensaje> getBuzon() {
+        return buzon;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public void setCantMensajes(int cantMensajes) {
+        this.cantMensajes = cantMensajes;
+    }
+
+    public void setBuzon(ArrayCola<Mensaje> buzon) {
+        this.buzon = buzon;
+    }
+
     @Nullable
-    public Mensaje eliminarDeCola(boolean primero){
+    public Mensaje eliminarDeCola(){
         if (cantMensajes==0){
             System.out.println("¡No hay mensajes!");
             return null;
         }
         Mensaje mensaje = null;
-        if (primero){
-            mensaje = buzon.desencolar();
+        int num = new Random().nextInt(cantMensajes) + 1;
+        ArrayCola<Mensaje> aux = new ArrayCola<>();
+        int i = 1;
+        while(!buzon.colaVacia()){
+            if(i==num){
+                mensaje = buzon.desencolar();
+            } else{
+                aux.encolar(buzon.desencolar());
+            }
+            i++;
         }
-        else{
-            int num = new Random().nextInt(cantMensajes) + 1;
-            ArrayCola<Mensaje> aux = new ArrayCola<>();
-            int i = 1;
-            while(!buzon.colaVacia()){
-                if(i==num){
-                    mensaje = buzon.desencolar();
-                }
-                else{
-                    aux.encolar(buzon.desencolar());
-                }
-                i++;
-            }
-            while(!aux.colaVacia()){
-                buzon.encolar(aux.desencolar());
-            }
+        while(!aux.colaVacia()){
+            buzon.encolar(aux.desencolar());
         }
         cantMensajes--;
         if (cantMensajes < 0) cantMensajes = 0;
