@@ -50,6 +50,8 @@ public class Usuario {
         while(!aux.colaVacia()){
             buzon.encolar(aux.desencolar());
         }
+        cantMensajes--;
+        if (cantMensajes < 0) cantMensajes = 0;
         return mensaje;
     }
 

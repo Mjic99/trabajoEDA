@@ -10,7 +10,7 @@ public class Mensaje {
 
     @Override
     public String toString() {
-        return "Mensaje:\n" + "Fecha: " + fecha + "\nTexto" + texto;
+        return "Mensaje:\n" + "Fecha: " + fecha + "\nTexto: " + texto;
     }
     
     

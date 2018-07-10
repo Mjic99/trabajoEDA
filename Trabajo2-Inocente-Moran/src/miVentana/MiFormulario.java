@@ -250,12 +250,22 @@ public class MiFormulario extends javax.swing.JFrame {
         seeMessages.setFont(new java.awt.Font("Comic Sans MS", 0, 14)); // NOI18N
         seeMessages.setText("Ver Mensaje de su Buzón");
         seeMessages.setActionCommand("   SALIR");
+        seeMessages.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seeMessagesActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Usuario:");
 
         jLabel7.setText("Password:");
 
         exitButton.setText("SALIR");
+        exitButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -369,6 +379,28 @@ public class MiFormulario extends javax.swing.JFrame {
         }
         userTable.setModel(modelo);
     }//GEN-LAST:event_seeUserTableActionPerformed
+
+    private void seeMessagesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seeMessagesActionPerformed
+        if (fieldIsValid(userLoginField, passwordLoginField)) {
+            NodoLEG<Usuario> ptr = userManager.getNodo();
+            boolean loggedIn = false;
+            while (ptr != null) {
+                if (ptr.getInfo().getNombre().equals(userLoginField.getText()) && ptr.getInfo().getPassword().equals(passwordLoginField.getText())) {
+                    Mensaje mensaje = ptr.getInfo().eliminarDeCola();
+                    JOptionPane.showMessageDialog(null, mensaje != null ? mensaje.toString() : "¡No hay mensajes!");
+                    loggedIn = true;
+                }
+                ptr = ptr.getSiguiente();
+            }
+            if (!loggedIn) {
+                JOptionPane.showMessageDialog(null, "Usuario incorrecto");
+            }
+        }
+    }//GEN-LAST:event_seeMessagesActionPerformed
+
+    private void exitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButtonActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_exitButtonActionPerformed
 
     private boolean fieldIsValid(javax.swing.JTextField... fields) {
         boolean isValid = true;

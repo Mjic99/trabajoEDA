@@ -445,6 +445,9 @@
             <Property name="text" type="java.lang.String" value="Ver Mensaje de su Buz&#xf3;n"/>
             <Property name="actionCommand" type="java.lang.String" value="   SALIR"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="seeMessagesActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="userLoginField">
         </Component>
@@ -464,6 +467,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="SALIR"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="exitButtonActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
