@@ -29,26 +29,31 @@ public class Usuario {
     }
 
     @Nullable
-    public Mensaje eliminarDeCola(){
+    public Mensaje eliminarDeCola(boolean primero){
         if (cantMensajes==0){
             System.out.println("¡No hay mensajes!");
             return null;
         }
-        int num = new Random().nextInt(cantMensajes) + 1;
         Mensaje mensaje = null;
-        ArrayCola<Mensaje> aux = new ArrayCola<>();
-        int i = 1;
-        while(!buzon.colaVacia()){
-            if(i==num){
-                mensaje = buzon.desencolar();
-            }
-            else{
-                aux.encolar(buzon.desencolar());
-            }
-            i++;
+        if (primero){
+            mensaje = buzon.desencolar();
         }
-        while(!aux.colaVacia()){
-            buzon.encolar(aux.desencolar());
+        else{
+            int num = new Random().nextInt(cantMensajes) + 1;
+            ArrayCola<Mensaje> aux = new ArrayCola<>();
+            int i = 1;
+            while(!buzon.colaVacia()){
+                if(i==num){
+                    mensaje = buzon.desencolar();
+                }
+                else{
+                    aux.encolar(buzon.desencolar());
+                }
+                i++;
+            }
+            while(!aux.colaVacia()){
+                buzon.encolar(aux.desencolar());
+            }
         }
         cantMensajes--;
         if (cantMensajes < 0) cantMensajes = 0;

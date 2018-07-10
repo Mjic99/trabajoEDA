@@ -386,7 +386,7 @@ public class MiFormulario extends javax.swing.JFrame {
             boolean loggedIn = false;
             while (ptr != null) {
                 if (ptr.getInfo().getNombre().equals(userLoginField.getText()) && ptr.getInfo().getPassword().equals(passwordLoginField.getText())) {
-                    Mensaje mensaje = ptr.getInfo().eliminarDeCola();
+                    Mensaje mensaje = ptr.getInfo().eliminarDeCola(true);
                     JOptionPane.showMessageDialog(null, mensaje != null ? mensaje.toString() : "¡No hay mensajes!");
                     loggedIn = true;
                 }
