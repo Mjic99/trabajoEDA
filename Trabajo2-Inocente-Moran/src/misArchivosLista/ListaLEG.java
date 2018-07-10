@@ -41,7 +41,7 @@ public class ListaLEG<E extends Usuario> {
         talla++;       
     }
 
-    public void enviarMensaje(String senderName, String destinationName, Mensaje mensaje) {
+    public boolean enviarMensaje(String senderName, String destinationName, Mensaje mensaje) {
         NodoLEG<E> ptr = nodo;
         NodoLEG<E> destination = null;
         boolean foundSender = false;
@@ -61,7 +61,9 @@ public class ListaLEG<E extends Usuario> {
         }
         if (!foundSender || !foundDestination) {
             System.out.println("¡El usuario no existe!");
+            return false;
         }
+        return true;
     }
     
     public void agregarUsuario(E user){

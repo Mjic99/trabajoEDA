@@ -358,9 +358,16 @@ public class MiFormulario extends javax.swing.JFrame {
 
     private void sendMessageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sendMessageActionPerformed
         if (fieldIsValid(destinationUser, senderUser, dateField)){
-            userManager.enviarMensaje(senderUser.getText(), destinationUser.getText(), new Mensaje(messageField.getText(),dateField.getText()));
-            destinationUser.setText("");
-            messageField.setText("");
+            if(userManager.enviarMensaje(senderUser.getText(), destinationUser.getText(), 
+                    new Mensaje(messageField.getText(),dateField.getText()))){
+                destinationUser.setText("");
+                senderUser.setText("");
+                dateField.setText("");
+                messageField.setText("");  
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "¡El usuario no existe!");
+            }
         } else {
             JOptionPane.showMessageDialog(null, "Información incompleta");
         }
