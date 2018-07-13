@@ -16,6 +16,7 @@ public class Main {
         };
         SparseMatrix sparseMatrix = new SparseMatrix(matrix);
         System.out.println(Arrays.toString(sparseMatrix.sortByCOO()));
+        System.out.println(sparseMatrix.sortByEllpack());
     }
 
 }

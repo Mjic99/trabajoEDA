@@ -1,3 +1,5 @@
+import methods.Ellpack;
+
 public class SparseMatrix {
 
     private int[][] matrix;
@@ -9,11 +11,6 @@ public class SparseMatrix {
         int rowCount = matrix[0].length;
         if (columnCount != rowCount) throw new IllegalArgumentException("Matrixes differ in size. Row: " + rowCount + " Column: " + columnCount);
         this.squareSize = matrix.length;
-    }
-
-    public SparseMatrix(int size) {
-        this.matrix = new int[size][size];
-        this.squareSize = size;
     }
 
     public int[] sortByCOO() {
@@ -32,11 +29,29 @@ public class SparseMatrix {
             }
         }
         int[] result = new int[((squareSize * squareSize) - cleanupCount) * 3];
-        System.arraycopy(coo, 0, result, 0, result.length);
-        /*for (int i = 0; i < result.length; i++) {
+        for (int i = 0; i < result.length; i++) {
             result[i] = coo[i];
-        }*/
+        }
         return result;
     }
+
+    public String sortByEllpack() {
+        Integer[][] columnTemp = new Integer[squareSize][squareSize];
+        Integer[][] valueTemp = new Integer[squareSize][squareSize];
+        int columnCount = 0;
+        for (int row = 0; row < squareSize; row++) {
+            for (int column = 0; column < squareSize; column++) {
+                if (matrix[row][column] != 0) {
+                    columnTemp[row][columnCount] = column;
+                    valueTemp[row][columnCount] = matrix[row][column];
+                    columnCount++;
+                }
+            }
+            columnCount = 0;
+        }
+        Ellpack ellpack = new Ellpack(columnTemp, valueTemp);
+        return ellpack.toString();
+    }
+
 
 }
