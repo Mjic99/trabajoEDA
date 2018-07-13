@@ -86,4 +86,41 @@ public class SparseMatrix {
         
         return vectors; 
     }
+    
+    public Map<String, Integer[][]> representInELL(){
+        int maxRow = 0;
+        int rc;
+        for (int i=0; i<squareSize; i++){
+            rc = 0;
+            for (int j=0; j<squareSize; j++){
+                if (matrix[i][j]!=0){
+                    rc++;
+                }
+            }
+            if (rc>maxRow) maxRow = rc;
+        }
+        Integer[][] values = new Integer[squareSize][maxRow];
+        Integer[][] columns = new Integer[squareSize][maxRow];
+        int valCount;
+        for (int i=0; i<squareSize; i++){
+            valCount = 0;
+            for (int j=0; j<squareSize; j++){
+                if (matrix[i][j] !=0){
+                    values[i][valCount] = matrix[i][j];
+                    columns[i][valCount] = j;
+                    valCount++;
+                }
+            }
+            for (int k=valCount; k<maxRow; k++){
+                values[i][k] = 0;
+                columns[i][k] = -1;
+            }
+        }
+        
+        Map<String,Integer[][]> vectors = new HashMap<>();
+        vectors.put("values",values);
+        vectors.put("columns",columns);
+        
+        return vectors;
+    }
 }

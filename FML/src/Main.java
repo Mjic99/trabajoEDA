@@ -22,14 +22,25 @@ public class Main {
                 {0, 6, 0, 0}
         };
         
-        SparseMatrix sparseMatrix = new SparseMatrix(simpleMatrix);
+        SparseMatrix sparseMatrix = new SparseMatrix(justAnotherTest);
         System.out.println(Arrays.toString(sparseMatrix.sortByCOO()));
         System.out.println(sparseMatrix.sortByEllpack());
+        
         System.out.println("GOod stuff");
         Map<String, Integer[]> csr = sparseMatrix.representInCSR();
         System.out.println(Arrays.toString(csr.get("A")));
         System.out.println(Arrays.toString(csr.get("IA")));
         System.out.println(Arrays.toString(csr.get("JA")));
+        
+        Map<String, Integer[][]> ell = sparseMatrix.representInELL();
+        System.out.println("values:");
+        for (Integer[] arr : ell.get("values")){
+            System.out.println(Arrays.toString(arr));
+        }
+        System.out.println("columns:");
+        for (Integer[] arr : ell.get("columns")){
+            System.out.println(Arrays.toString(arr));
+        }
     }
 
 }
