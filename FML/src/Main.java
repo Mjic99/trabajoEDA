@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Map;
 
 public class Main {
 
@@ -14,9 +15,21 @@ public class Main {
                 {1, 0},
                 {0, 2}
         };
-        SparseMatrix sparseMatrix = new SparseMatrix(matrix);
+        int[][] justAnotherTest = {
+                {0, 0, 0, 0},
+                {5, 8, 0, 0},
+                {0, 0, 3, 0},
+                {0, 6, 0, 0}
+        };
+        
+        SparseMatrix sparseMatrix = new SparseMatrix(simpleMatrix);
         System.out.println(Arrays.toString(sparseMatrix.sortByCOO()));
         System.out.println(sparseMatrix.sortByEllpack());
+        System.out.println("GOod stuff");
+        Map<String, Integer[]> csr = sparseMatrix.representInCSR();
+        System.out.println(Arrays.toString(csr.get("A")));
+        System.out.println(Arrays.toString(csr.get("IA")));
+        System.out.println(Arrays.toString(csr.get("JA")));
     }
 
 }

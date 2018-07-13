@@ -1,3 +1,5 @@
+import java.util.HashMap;
+import java.util.Map;
 import methods.Ellpack;
 
 public class SparseMatrix {
@@ -53,5 +55,35 @@ public class SparseMatrix {
         return ellpack.toString();
     }
 
-
+    public Map<String, Integer[]> representInCSR(){
+        Integer[] A = new Integer[squareSize*squareSize];
+        Integer[] IA = new Integer[squareSize*squareSize+1];
+        Integer[] JA = new Integer[squareSize*squareSize];
+        int Acount = 0;
+        int IAcount = 1;
+        int JAcount = 0;
+        IA[0] = 0;
+        int nonzeroRow;
+        for (int i=0; i<squareSize; i++){
+            nonzeroRow = 0;
+            for (int j=0; j<squareSize; j++){
+                if (matrix[i][j]!=0){
+                    A[Acount] = matrix[i][j];
+                    JA[JAcount] = j;
+                    Acount++;
+                    JAcount++;
+                    nonzeroRow++;
+                }
+            }
+            IA[IAcount] = IA[IAcount-1] + nonzeroRow;
+            IAcount++;
+        }
+        
+        Map<String,Integer[]> vectors = new HashMap<>();
+        vectors.put("A",A);
+        vectors.put("IA",IA);
+        vectors.put("JA",JA);
+        
+        return vectors; 
+    }
 }
