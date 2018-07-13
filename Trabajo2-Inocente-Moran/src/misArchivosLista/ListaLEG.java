@@ -3,8 +3,6 @@ package misArchivosLista;
 import misClases.Mensaje;
 import misClases.Usuario;
 
-import java.util.Random;
-
 public class ListaLEG<E extends Usuario> {
 
     private NodoLEG<E> nodo;
